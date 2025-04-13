@@ -6,8 +6,23 @@
     <RootNamespace>fsharp_pascal_interpreter</RootNamespace>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Compile Include="Program.fs" />
-  </ItemGroup>
+	<ItemGroup>
+		<Compile Include="Lexer\TokenTypes.fs" />
+		<Compile Include="Lexer\TokenDefs.fs" />
+		<Compile Include="Lexer\LexerValidators.fs" />
+		<Compile Include="Lexer\LexemeLogger.fs" />
+		<Compile Include="Lexer\Lexer.fs" />
+
+		<Compile Include="Parser\AstTypes.fs" />
+		<Compile Include="Parser\GrammarRules.fs" />
+		<Compile Include="Parser\Parser.fs" />
+
+		<Compile Include="Semantic\SymbolTable.fs" />
+		<Compile Include="Semantic\TypeChecker.fs" />
+
+		<Compile Include="Runtime\Interpreter.fs" />
+
+		<Compile Include="Program.fs" />
+	</ItemGroup>
 
 </Project>
