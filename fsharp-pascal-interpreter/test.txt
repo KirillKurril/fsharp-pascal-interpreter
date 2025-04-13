@@ -1,0 +1,22 @@
+program MiniTest(output);
+
+{ This program contains the minimum code for testing the lexer }
+var
+number: integer; { Integer variable }
+flag: boolean;
+
+begin
+number := 42 + 05 * 3; { Simple expression }
+
+if number > 50 then
+flag := true
+else
+flag := false;
+
+writeln('Result: ', number); { Output to screen }
+
+(*
+Multiline
+comment
+*)
+end.

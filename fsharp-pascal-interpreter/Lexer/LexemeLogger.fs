@@ -13,7 +13,15 @@ let printTokens (tokens : TokenInfo list) =
 
     let tokenGroups =
         tokens
-        |> List.filter (fun t -> match t.Token with Whitespace -> false | Keyword _ -> false | Operator _ -> false | Separator _ -> false | Comment _ -> false | Unknown _ -> false | _ -> true)
+        |> List.filter (fun t -> 
+            match t.Token with 
+            | Whitespace -> false 
+            | Keyword _ -> true 
+            | Operator _ -> true 
+            | Separator _ -> true 
+            | Comment _ -> true 
+            | Unknown _ -> true 
+            | _ -> true)
         |> List.groupBy (fun t -> (t.Token, t.Lexeme))
         |> List.sortBy (fun ((token, _lexeme), _) -> token)
 
