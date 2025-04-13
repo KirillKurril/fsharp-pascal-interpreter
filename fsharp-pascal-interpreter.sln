@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35825.156 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "fsharp-pascal-interpreter", "fsharp-pascal-interpreter\fsharp-pascal-interpreter.fsproj", "{4C80E51F-8B50-4774-98C8-1EB6D3F1922C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4C80E51F-8B50-4774-98C8-1EB6D3F1922C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C80E51F-8B50-4774-98C8-1EB6D3F1922C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C80E51F-8B50-4774-98C8-1EB6D3F1922C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C80E51F-8B50-4774-98C8-1EB6D3F1922C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A02D6020-7946-4847-AE0A-7E517A580D95}
+	EndGlobalSection
+EndGlobal
