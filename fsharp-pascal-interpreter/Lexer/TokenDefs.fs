@@ -8,7 +8,7 @@ let tokenDefs : (string * string * (string -> Token)) list = [
             Unknown "Invalid comment syntax: (*) sequence forbidden"
         else Comment lex);
 
-    ("Keyword", @"\b(?i:begin|end|if|then|else|while|do|for|to|downto|var|const|procedure|function|program|integer|real|char|boolean|div|mod|and|or|not)\b", 
+    ("Keyword", @"\b(?i:begin|end|if|then|else|while|do|for|to|downto|var|const|procedure|function|program|integer|real|char|boolean|div|mod|and|or|not|array|case|goto|in|label|record|repeat|of|packed|set|type|until|with)\b", 
         fun lex -> Keyword (lex.ToLower()));
 
     ("InvalidIdentifier", "^[0-9][a-zA-Z0-9]*", fun _ -> 
