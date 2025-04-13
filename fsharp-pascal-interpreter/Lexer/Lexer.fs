@@ -22,7 +22,7 @@ let tokenize (code: string) =
                 let token = constructor lexeme
                 let currentLine = line
                 let currentColumn = column
-                let tokenInfo = { Token = token; Lexeme = lexeme; Line = currentLine; Column = currentColumn }
+                let tokenInfo = {Token = token; Lexeme = lexeme; Line = currentLine; Column = currentColumn }
 
                 let newLine, newColumn =
                     if lexeme.Contains("\n") then

@@ -5,11 +5,24 @@ open TokenTypes
 open System.IO
 
 let printTokens (tokens : TokenInfo list) =
+    let cleanStr (s : string) = s.Replace("\n", " ").Replace("\r", " ")
 
     printfn "\nTokens found:"
     tokens 
     |> List.iter (fun t -> 
-        printfn "Line %d, Position %d: %A (lexeme: %s)" t.Line t.Column t.Token t.Lexeme)
+        let tokenStr = 
+            match t.Token with
+            | Comment s -> $"Comment({cleanStr s})"
+            | Keyword s -> $"Keyword({cleanStr s})"
+            | Identifier s -> $"Identifier({cleanStr s})"
+            | Number s -> $"Number({cleanStr s})"
+            | StringLiteral s -> $"StringLiteral({cleanStr s})"
+            | CharLiteral s -> $"CharLiteral({cleanStr s})"
+            | Operator s -> $"Operator({cleanStr s})"
+            | Separator s -> $"Separator({cleanStr s})"
+            | Unknown s -> $"Unknown({cleanStr s})"
+            | Whitespace -> "Whitespace"
+        printfn "Line %d, Position %d: %s (lexeme: %s)" t.Line t.Column tokenStr (cleanStr t.Lexeme))
 
     let tokenGroups =
         tokens
@@ -43,4 +56,4 @@ let printTokens (tokens : TokenInfo list) =
             | Comment _ -> "Comment"
             | Unknown _ -> "Unknown"
             | Whitespace -> "Whitespace"
-        printfn "%-20s | %-20s | %-10d | %s" tokenTypeStr lexeme count positions
+        printfn "%-20s | %-20s | %-10d | %s" tokenTypeStr (cleanStr lexeme) count positions

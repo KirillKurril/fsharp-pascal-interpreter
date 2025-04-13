@@ -3,7 +3,7 @@
 open TokenTypes;
 
 let tokenDefs : (string * string * (string -> Token)) list = [
-    ("Comment", @"^\{(.*?)(\*\)|\})|^\(\*(.*?)(\*\)|\})", fun lex ->
+    ("Comment", @"^(\{[^\}]*\}|\(\*[^\*]*\*\))", fun lex ->
         if lex.Contains("(*)") then 
             Unknown "Invalid comment syntax: (*) sequence forbidden"
         else Comment lex);
@@ -11,7 +11,7 @@ let tokenDefs : (string * string * (string -> Token)) list = [
     ("Keyword", @"\b(?i:begin|true|false|end|if|then|else|while|do|for|to|downto|var|const|procedure|function|program|integer|real|char|boolean|div|mod|and|or|not|array|case|goto|in|label|record|repeat|of|packed|set|type|until|with)\b", 
         fun lex -> Keyword (lex.ToLower()));
 
-     ("Number", @"^([0-9]+(\.[0-9]*)?|\.[0-9]+)([eE][+-]?[0-9]+)?", fun lex ->
+     ("Number", @"^([0-9]+(\.[0-9]*)?|\.[0-9]+)([eE][+-]?[0-9]+)?\b", fun lex ->
         if lex.StartsWith('0') && lex.Length > 1 && not (lex.Contains('.')) then 
             Unknown "Leading zeros forbidden in integers"
         else 
@@ -23,7 +23,7 @@ let tokenDefs : (string * string * (string -> Token)) list = [
     ("Identifier", "^[a-zA-Z][a-zA-Z0-9]*", fun lex -> Identifier lex);
 
 
-     ("StringOrCharLiteral", "^'(''|[^'\n\r])*'", fun lex ->
+     ("StringOrCharLiteral", "^'(''|[^'\n\r])*", fun lex ->
             if not (lex.EndsWith("'")) then 
                 Unknown "Unclosed string literal"
             else

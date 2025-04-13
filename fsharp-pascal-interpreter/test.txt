@@ -2,7 +2,7 @@ program MiniTest(output);
 
 { This program contains the minimum code for testing the lexer }
 var
-number: integer; { Integer variable }
+2number: integer; { Integer variable }
 flag: boolean;
 
 begin
@@ -13,10 +13,11 @@ flag := true
 else
 flag := false;
 
-writeln('Result: ', number); { Output to screen }
+writeln('Result: , number); { Output to screen }
 
 (*
 Multiline
 comment
 *)
 end.
+@
